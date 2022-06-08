@@ -1,0 +1,15 @@
+from flask import Flask
+
+app = Flask(__name__)
+
+@app.route("/notas/<x>/<y>/<z>")
+def notas(x, y, z):
+   x = float(x)
+   y = float(y)
+   z = float(z)
+   soma = (x + y + z)
+   media = soma / 3
+   if(soma > 179.9):
+       return "O aluno está APROVADO com nota média de {}".format(media)
+   elif(soma < 180):
+       return "O aluno está REPROVADO com nota média de {}".format(media)
